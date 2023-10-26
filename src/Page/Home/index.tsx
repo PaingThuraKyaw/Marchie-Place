@@ -1,15 +1,10 @@
-import { AnimatePresence } from "framer-motion";
-import { useStore } from "../../store/client";
 import { productsProp } from "../../store/server/interface";
 import { useProducts } from "../../store/server/query";
 import Product from "./product";
-import ProductCard from "./productCard";
 
 const Home = () => {
   const { data, isLoading } = useProducts();
-  const { open, productId } = useStore();
 
-  const findId = data?.find((product) => product.id === productId);
 
   if (isLoading) {
     return <div className=" animate-pulse">Loading Product...</div>;
@@ -26,9 +21,7 @@ const Home = () => {
             <Product product={product} />
           </div>
         ))}
-      <AnimatePresence>
-        {open && <ProductCard findId={findId} />}
-      </AnimatePresence>
+    
       </div>
     </>
   );

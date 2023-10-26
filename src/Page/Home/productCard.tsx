@@ -2,8 +2,10 @@ import { useStore } from "../../store/client";
 import { motion } from "framer-motion";
 import { productsProp } from "../../store/server/interface";
 import Button from "../../components/Button";
+import { useState } from "react";
 const ProductCard = ({ findId }: { findId: productsProp | undefined }) => {
-  const { setOpen } = useStore();
+  const { setOpen, productPs } = useStore();
+ 
 
   return (
     <motion.div
@@ -33,16 +35,30 @@ const ProductCard = ({ findId }: { findId: productsProp | undefined }) => {
           </p>
           <div>
             <div className=" mt-2 mb-1 flex items-center gap-4">
+              <Button className=" w-full ">Detail</Button>
               <Button
-                className=" w-full "
+                onClick={() => addToCart(findId?.image)}
+                className=" w-full hover:bg-cyan-600 bg-cyan-500"
               >
-                Detail
+                Add to cart
               </Button>
-              <Button className=" w-full hover:bg-cyan-600 bg-cyan-500">Add to cart</Button>
             </div>
           </div>
         </div>
       </motion.div>
+      <motion.img
+        src={img?.src}
+        style={{
+          position: img?.style.position,
+          top: img?.style.top,
+          bottom: img?.style.bottom,
+          right: img?.style.right,
+          left: img?.style.left,
+          transition : "0.7s"
+        }}
+        className=" h-[80px]"
+        alt=""
+      />
     </motion.div>
   );
 };
