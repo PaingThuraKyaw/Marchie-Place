@@ -9,4 +9,5 @@ export interface productsProp {
     rate: number;
     count: number;
   };
+  quantity : number
 }
