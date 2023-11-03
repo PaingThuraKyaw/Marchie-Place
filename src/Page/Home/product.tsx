@@ -2,12 +2,17 @@
 import Button from "../../components/Button";
 import { useStore } from "../../store/client";
 import { productsProp } from "../../store/server/interface";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 const Product = ({ product }: { product: productsProp }) => {
   const { addToCart, card } = useStore();
 
   return (
-    <motion.div animate={{y : -30 , opacity : 1 }} initial={{y : 0 , opacity : 1}} transition={{duration : 0.5}} className=" mb-5 md:mb-auto cursor-pointer shadow-md border-2 border-gray-500/20 md:border-0 md:shadow-lg md:px-5 px-3 rounded-md py-5 md:py-3">
+    <motion.div
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className=" mb-5 md:mb-auto cursor-pointer shadow-md border-2 border-gray-500/20 md:border-0 md:shadow-lg md:px-5 px-3 rounded-md py-5 md:py-3"
+    >
       <img src={product.image} className=" mx-auto h-40" alt="" />
       <div>
         <h3 className=" md:text-xl text-lg font-bold text-gray-700 pt-2">

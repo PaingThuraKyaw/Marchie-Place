@@ -2,7 +2,7 @@ import Loader from "../../components/Loader";
 import { useProducts } from "../../store/server/query";
 import Product from "../Home/product";
 
-const Men = () => {
+const Jewelery = () => {
   const { data, isLoading } = useProducts();
 
   if (isLoading) {
@@ -12,7 +12,7 @@ const Men = () => {
   return (
     <div className=" grid grid-cols-12 gap-10">
       {data?.map((item) => {
-        if (item.category === "men's clothing") {
+        if (item.category === "jewelery") {
           return (
             <div
               key={item.id}
@@ -28,4 +28,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default Jewelery;

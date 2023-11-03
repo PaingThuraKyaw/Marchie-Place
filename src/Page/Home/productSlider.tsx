@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import "./product.css"
+import "./product.css";
 const Productslider = () => {
-  
-
   return (
     <div className=" flex flex-col space-y-4">
       {sliceData?.map((item) => (
-       <nav>
-         <NavLink className={" font-semibold text-black/80"} to={item.path}>{item.category}</NavLink>
-       </nav>
+        <nav key={item.id}>
+          <NavLink className={" font-semibold text-black/80"} to={item.path}>
+            {item.category}
+          </NavLink>
+        </nav>
       ))}
     </div>
   );
