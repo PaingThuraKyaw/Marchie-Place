@@ -12,9 +12,16 @@ const SearchBox = () => {
     e.preventDefault();
     const filter = data?.filter(
       (item) =>
-        item.title.toLowerCase().trim().includes(state.toLocaleLowerCase().trim()) ||
-        item.category.toLocaleLowerCase().trim().includes(state.toLocaleLowerCase().trim())
+        item.title
+          .toLowerCase()
+          .trim()
+          .includes(state.toLocaleLowerCase().trim()) ||
+        item.category
+          .toLocaleLowerCase()
+          .trim()
+          .includes(state.toLocaleLowerCase().trim())
     );
+    setState("");
     navigate("/search", {
       state: {
         product: filter,
